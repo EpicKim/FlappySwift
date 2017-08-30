@@ -1,5 +1,5 @@
 //
-//  GameViewController.swift
+//  FlappyVCtrl.swift
 //  FlappyBird
 //
 //  Created by Nate Murray on 6/2/14.
@@ -29,11 +29,12 @@ extension SKNode {
     }
 }
 
-class GameViewController: UIViewController {
+open class FlappyVCtrl: UIViewController {
 
-    override func viewDidLoad() {
+    override open func viewDidLoad() {
         super.viewDidLoad()
 
+        self.view = SKView()
         if let scene = GameScene.unarchiveFromFile("GameScene") as? GameScene {
             // Configure the view.
             let skView = self.view as! SKView
@@ -50,11 +51,11 @@ class GameViewController: UIViewController {
         }
     }
 
-    override var shouldAutorotate : Bool {
+    override open var shouldAutorotate : Bool {
         return true
     }
 
-    override var supportedInterfaceOrientations : UIInterfaceOrientationMask {
+    override open var supportedInterfaceOrientations : UIInterfaceOrientationMask {
         if UIDevice.current.userInterfaceIdiom == .phone {
             return UIInterfaceOrientationMask.allButUpsideDown
         } else {
@@ -62,7 +63,7 @@ class GameViewController: UIViewController {
         }
     }
 
-    override func didReceiveMemoryWarning() {
+    override open func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Release any cached data, images, etc that aren't in use.
     }
