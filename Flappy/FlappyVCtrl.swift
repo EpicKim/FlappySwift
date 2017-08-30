@@ -12,7 +12,7 @@ import SpriteKit
 extension SKNode {
     class func unarchiveFromFile(_ file : String) -> SKNode? {
         
-        let path = Bundle.main.path(forResource: file, ofType: "sks")
+        let path = Bundle(for: FlappyVCtrl.self).path(forResource: file, ofType: "sks")
         
         let sceneData: Data?
         do {

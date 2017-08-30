@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "bird-2.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "PipeUp@2x.png",
       "scale" : "2x"
     },
     {

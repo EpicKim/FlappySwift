@@ -8,6 +8,24 @@
 
 import SpriteKit
 
+extension UIImage {
+    class func bundledImage(named: String) -> UIImage? {
+        let image = UIImage(named: named)
+        if image == nil {
+            let bundle =  Bundle.init(for: FlappyVCtrl.classForCoder())
+            return UIImage.init(named: named, in: bundle, compatibleWith: nil)
+        } // Replace MyBasePodClass with yours
+        return image
+    }
+}
+
+extension SKTexture {
+    class func generate(imageNamed: String) -> SKTexture {
+        let image = UIImage.bundledImage(named:imageNamed)
+        return SKTexture(image: image!)
+    }
+}
+
 class GameScene: SKScene, SKPhysicsContactDelegate{
     let verticalPipeGap = 150.0
     
@@ -28,7 +46,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     let scoreCategory: UInt32 = 1 << 3
     
     override func didMove(to view: SKView) {
-        
+
         canRestart = false
         
         // setup physics
@@ -48,7 +66,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         moving.addChild(pipes)
         
         // ground
-        let groundTexture = SKTexture(imageNamed: "land")
+        let groundTexture = SKTexture.generate(imageNamed: "land")
         groundTexture.filteringMode = .nearest // shorter form for SKTextureFilteringMode.Nearest
         
         let moveGroundSprite = SKAction.moveBy(x: -groundTexture.size().width * 2.0,
@@ -68,7 +86,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         }
         
         // skyline
-        let skyTexture = SKTexture(imageNamed: "sky")
+        let skyTexture = SKTexture.generate(imageNamed: "sky")
         skyTexture.filteringMode = .nearest
         
         let moveSkySprite = SKAction.moveBy(x: -skyTexture.size().width * 2.0, y: 0,
@@ -88,9 +106,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         }
         
         // create the pipes textures
-        pipeTextureUp = SKTexture(imageNamed: "PipeUp")
+        pipeTextureUp = SKTexture.generate(imageNamed: "PipeUp")
         pipeTextureUp.filteringMode = .nearest
-        pipeTextureDown = SKTexture(imageNamed: "PipeDown")
+        pipeTextureDown = SKTexture.generate(imageNamed: "PipeDown")
         pipeTextureDown.filteringMode = .nearest
         
         // create the pipes movement actions
@@ -108,9 +126,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         self.run(spawnThenDelayForever)
         
         // setup our bird
-        let birdTexture1 = SKTexture(imageNamed: "bird-01")
+        let birdTexture1 = SKTexture.generate(imageNamed: "bird-1")
         birdTexture1.filteringMode = .nearest
-        let birdTexture2 = SKTexture(imageNamed: "bird-02")
+        let birdTexture2 = SKTexture.generate(imageNamed: "bird-2")
         birdTexture2.filteringMode = .nearest
         
         let anim = SKAction.animate(with: [birdTexture1, birdTexture2],

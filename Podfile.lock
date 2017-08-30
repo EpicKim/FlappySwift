@@ -1,0 +1,16 @@
+PODS:
+  - Flappy (0.0.1)
+
+DEPENDENCIES:
+  - Flappy (from `./Flappy/`)
+
+EXTERNAL SOURCES:
+  Flappy:
+    :path: ./Flappy/
+
+SPEC CHECKSUMS:
+  Flappy: a3adb0d15230dc8523519f21d1be52aa9a441ea1
+
+PODFILE CHECKSUM: 97d0f3a0758e2f08f56a87aac0449002343bda19
+
+COCOAPODS: 1.2.1

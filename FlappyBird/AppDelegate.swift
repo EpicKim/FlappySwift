@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Flappy
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
