@@ -51,7 +51,7 @@ open class FlappyVCtrl: UIViewController {
         }
     }
 
-    override open var shouldAutorotate : Bool {
+    override open var shouldAutorotate: Bool {
         return true
     }
 
@@ -62,10 +62,4 @@ open class FlappyVCtrl: UIViewController {
             return UIInterfaceOrientationMask.all
         }
     }
-
-    override open func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Release any cached data, images, etc that aren't in use.
-    }
-    
 }
