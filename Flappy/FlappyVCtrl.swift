@@ -54,7 +54,7 @@ open class FlappyVCtrl: UIViewController {
     override open var shouldAutorotate: Bool {
         return true
     }
-
+    // 添加翻转方向的支持
     override open var supportedInterfaceOrientations : UIInterfaceOrientationMask {
         if UIDevice.current.userInterfaceIdiom == .phone {
             return UIInterfaceOrientationMask.allButUpsideDown
