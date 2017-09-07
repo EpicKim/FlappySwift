@@ -169,7 +169,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         scoreLabelNode.zPosition = 100
         scoreLabelNode.text = String(score)
         self.addChild(scoreLabelNode)
-        
     }
     
     func spawnPipes() {
@@ -214,7 +213,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         
         pipePair.run(movePipesAndRemove)
         pipes.addChild(pipePair)
-        
     }
     
     func resetScene (){
